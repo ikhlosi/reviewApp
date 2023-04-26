@@ -1,18 +1,39 @@
-import { Button, StatusBar, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+  Button,
+  FlatList,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useState } from "react";
 import { globalStyles } from "../styles/global";
+import uuid from "react-native-uuid";
 
 const Home = (props) => {
+  const [reviews, setReviews] = useState([
+    { title: "Zelda", rating: 5, body: "lorem ipsum", key: uuid.v4() },
+    { title: "Giant", rating: 4, body: "lorem ipsum", key: uuid.v4() },
+    { title: "Mini", rating: 3, body: "lorem ipsum", key: uuid.v4() },
+  ]);
+
   const { navigation } = props;
 
-  const pressHandler = () => {
-    navigation.navigate("Review");
+  const pressHandler = (item) => {
+    navigation.navigate("Review", item);
   };
 
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>Home</Text>
-      <Button onPress={() => pressHandler()} title="Go to ReviewDetails" />
+      <FlatList
+        data={reviews}
+        renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => pressHandler(item)}>
+            <Text style={globalStyles.titleText}>{item.title}</Text>
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 };
