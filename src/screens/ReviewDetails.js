@@ -1,9 +1,10 @@
 import { StatusBar, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { globalStyles } from "../styles/global";
 
 const ReviewDetails = () => {
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
       <Text>ReviewDetails</Text>
     </View>
   );
@@ -11,8 +12,4 @@ const ReviewDetails = () => {
 
 export default ReviewDetails;
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: StatusBar.currentHeight,
-  },
-});
+const styles = StyleSheet.create({});
