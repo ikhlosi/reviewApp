@@ -1,7 +1,10 @@
+// must be at top
+import "react-native-gesture-handler";
+
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Home from "./src/screens/Home";
 import { useFonts } from "expo-font";
+import HomeStack from "./src/routes/HomeStack";
 
 export default function App() {
   const [fontLoaded] = useFonts({
@@ -12,7 +15,8 @@ export default function App() {
   if (!fontLoaded) {
     return <Text>App is loading...</Text>;
   }
-  return <Home />;
+
+  return <HomeStack />;
 }
 
 const styles = StyleSheet.create({
