@@ -12,8 +12,12 @@ export default AboutStack = () => {
       <Stack.Screen
         name="About"
         component={About}
-        options={() => {
-          return { headerTitle: () => <Header /> };
+        options={({ navigation }) => {
+          return {
+            headerTitle: () => (
+              <Header navigation={navigation} title={"About"} />
+            ),
+          };
         }}
       />
     </Stack.Navigator>

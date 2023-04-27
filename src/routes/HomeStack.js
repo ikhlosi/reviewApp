@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import ReviewDetails from "../screens/ReviewDetails";
 import { globalStyles } from "../styles/global";
+import Header from "../shared/Header";
 
 const Stack = createStackNavigator();
 
@@ -11,16 +12,27 @@ export default HomeStack = () => {
       <Stack.Screen
         name="Home"
         component={Home}
-        options={{
-          title: "Heroes",
+        options={({ navigation }) => {
+          return {
+            headerTitle: () => (
+              <Header navigation={navigation} title={"Heroes"} />
+            ),
+          };
         }}
       />
       <Stack.Screen
         name="Review"
         component={ReviewDetails}
-        options={({ route }) => ({
-          title: route.params.title,
-        })}
+        options={({ navigation, route }) => {
+          return {
+            headerTitle: () => (
+              <Header
+                navigation={navigation}
+                title={`Details: ${route.params.title}`}
+              />
+            ),
+          };
+        }}
       />
     </Stack.Navigator>
   );
