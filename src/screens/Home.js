@@ -10,6 +10,7 @@ import {
 import React, { useState } from "react";
 import { globalStyles } from "../styles/global";
 import uuid from "react-native-uuid";
+import Card from "../shared/Card";
 
 const Home = (props) => {
   const [reviews, setReviews] = useState([
@@ -30,7 +31,9 @@ const Home = (props) => {
         data={reviews}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => pressHandler(item)}>
-            <Text style={globalStyles.titleText}>{item.title}</Text>
+            <Card>
+              <Text style={globalStyles.titleText}>{item.title}</Text>
+            </Card>
           </TouchableOpacity>
         )}
       />
