@@ -4,6 +4,7 @@ import "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 import HomeStack from "./src/routes/HomeStack";
+import DrawerNav from "./src/routes/DrawerNav";
 
 export default function App() {
   const [fontLoaded] = useFonts({
@@ -15,7 +16,7 @@ export default function App() {
     return <Text>App is loading...</Text>;
   }
 
-  return <HomeStack />;
+  return <DrawerNav />;
 }
 
 const styles = StyleSheet.create({

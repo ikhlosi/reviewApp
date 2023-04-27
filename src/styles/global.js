@@ -10,4 +10,13 @@ export const globalStyles = StyleSheet.create({
     fontSize: 36,
     color: "#333",
   },
+  screenOptions: {
+    headerStyle: {
+      backgroundColor: "#f4511e",
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold",
+    },
+  },
 });
