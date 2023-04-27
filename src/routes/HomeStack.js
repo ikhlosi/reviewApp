@@ -29,9 +29,9 @@ export default HomeStack = () => {
         <Stack.Screen
           name="Review"
           component={ReviewDetails}
-          options={{
-            title: "Hero Details",
-          }}
+          options={({ route }) => ({
+            title: route.params.title,
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
