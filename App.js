@@ -1,7 +1,6 @@
 // must be at top
 import "react-native-gesture-handler";
 
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 import HomeStack from "./src/routes/HomeStack";
