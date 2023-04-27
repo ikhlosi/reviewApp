@@ -2,6 +2,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import About from "../screens/About";
 import { globalStyles } from "../styles/global";
+import Header from "../shared/Header";
 
 const Stack = createStackNavigator();
 
@@ -11,8 +12,8 @@ export default AboutStack = () => {
       <Stack.Screen
         name="About"
         component={About}
-        options={{
-          title: "About",
+        options={() => {
+          return { headerTitle: () => <Header /> };
         }}
       />
     </Stack.Navigator>
